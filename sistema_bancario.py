@@ -1,4 +1,4 @@
-# Função para ação de depositar na conta
+# Função para ação de depositar na conta.
 def deposit_function(bank_balance, bank_statement, count_transaction ,/): # Esta função recebe somente parâmetros por posição
     print("\n_____________________________________________________\n")
     user_deposit = float(input("Informe o valor do depósito: "))
@@ -20,7 +20,7 @@ def deposit_function(bank_balance, bank_statement, count_transaction ,/): # Esta
         print("Operação cancelada.")
         return bank_balance, bank_statement, count_transaction
    
-
+# Função para ação de sacar um valor da conta.
 def withdrawal_function(*, withdrawal_limit, withdrawal_daily_limit, bank_balance, count_withdrawal, bank_statement, count_transaction ): # Essa função só recebe parâmetros por nome
     # Função para efetuar saque da conta do usuário.
     print("\n_____________________________________________________\n")
@@ -61,17 +61,18 @@ def withdrawal_function(*, withdrawal_limit, withdrawal_daily_limit, bank_balanc
             print("\nOperação cancelada.")
             return bank_balance, bank_statement, count_withdrawal, count_transaction
             
-
+# Função para exibir um extrato com as operações feitas pelo usuário.
 def statement_function(bank_balance, /, *, bank_statement):  # Esta função recebe parâmetros por nome e posição.
     print("\n________________________ EXTRATO _____________________________\n")
-    print("Nenhuma movimentação efetuada." if not bank_statement else "\n".join(bank_statement))
+    print("Nenhuma movimentação efetuada." if not bank_statement else "\n".join(bank_statement))# Exibe uma string caso o usuário não tenha feito nenhuma transação, ou exibe todas as transações feitas. 
     print(f"\nSaldo: R$ {bank_balance:.2f}")
   
-  
+
+# Função para cadastrar um novo usuário
 def new_user(bank_users, /):
     user_cpf = input("Informe seu cpf: ")
     
-    cpf_is_exist = user_filter(user_cpf, bank_users)
+    cpf_is_exist = user_filter(user_cpf, bank_users) # Chama a função para filtrar o cpf e verificar se o cpf informado já está cadastrado
     
     if cpf_is_exist:
         print("Usuário informado já existe!")
